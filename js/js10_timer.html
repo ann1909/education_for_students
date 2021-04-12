@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    # window 객체의 속성
+    - location, navigator, history, screen, document
+    - 속성이면서 또 하나의 객체
+    
+    1. location : 브라우저 주소 표시줄
+    2. navigator : 브라우저 정보
+    3. history : 브라우저 히스토리(방문기록)
+    4. screen : 운영체제 화면
+    5. document : html 문서
+
+    - innerHeight : 브라우저 화면의 높이
+    - innerWidth : 브라우저 화면의 너비
+    - outerHeight : 툴 바와 스크롤 바를 포함한 브라우저 윈도우의 높이
+    - outerWidth : 툴 바와 스크롤 바를 포함한 브라우저 윈도우의 너비
+    - pageXOffset : 윈도우의 좌상단을 기준을 현재 스크롤 된 가로 위치
+    - pageYOffset : 윈도우의 좌상단을 기준으로 현재 스크롤 된 세로 위치
+    - scrollX : pageXOffset 별칭
+    - scrollY : pageYOffset 별칭
+
+
+    # window 객체의 메서드
+    - open() : 새로운 window 객체를 생성
+    - setTimeout(function, ms) : 일정한 시간 후에 함수를 실행하는 타이머 
+    - setInterval(function, ms) : 일정한 시간 간격으로 함수를 실행하는 타이머 
+      --매개변수--
+      → function : 일정 시간 후에, 또는 일정 시간 간격마다 실행할 기능
+      → ms : 일정 시간(milliseconds 단위의 숫자)
+      
+      --반환 값--
+      → Timer ID (등록한 타이머의 ID)
+    
+    - clearTimeout(timerId) : setTimeout 메서드로 등록한 타이머 해제
+    - clearInterval(timerId) : setInterval 메서드로 등록한 타이머 해제
+      --매개변수--
+      → timerId : 해제하고자 하는 타이머의 ID
+        1) clearTimeout 메서드의 매개변수
+            : window.setTimeout 메서드의 매개변수
+        2) clearInterval 메서드의 매개변수
+            : window.setInterval 메서드의 반환 값
+
+    - scrollBy(x, y) : 윈도우 스크롤의 위치를 상대적으로 이동
+    - scrollTo(x, y) : 윈도우 스크롤의 위치를 절대적으로 이동
+  -->
+
+  <script>
+
+    // 1. 함수 선언 후 호출 방식
+    // 콘솔 창에 메세지를 출력하는 함수
+    function message() {
+      console.log("Hi")
+    }
+    // 3초가 지난 후에 message함수를 실행하는 타이머를 등록
+    window.setTimeout(message, 3000);
+
+    // 2. 함수를 바로 사용
+    // 3초가 지난 후에 "Hello" 메세지를 콘솔 창에 출력하는 타이머를 등록
+    window.setTimeout(function () {
+      console.log("Hello");
+    }, 3000);
+
+    // 3초마다 "Bye"를 콘솔 창에 출력하는 타이머를 등록
+    // setInterval 메서드가 반환하는 값, 즉 타이머 ID를 변수에 대입해놓고 나중에 타이머를 해제할 때 사용한다.
+    var timerId = window.setInterval(function () {
+      console.log("Hello");
+    }, 3000);
+
+    // 10초가 지난 다음 setInterval 메서드로 등록한 타이머를 해제
+    window.setTimeout(function () {
+      window.clearInterval(timerId);
+    }, 10000);
+
+    // 연습문제
+    // 2초마다 콘솔 창에 2, 4, 6, 8, 10, 2, 4.....을 출력
+    var i = 2;
+    window.setInterval(function () {
+      console.log(i);
+      i+=2;
+
+      if(i>10) i = 2;
+    }, 2000);
+
+    // 배열을 이용해 메시지를 출력
+    var sentence = [
+      "hi",
+      "bye",
+      "good",
+      "bad"
+    ];
+
+    var index = 0;
+
+    var timer = window.setInterval(function () {
+      console.log(message[i]);
+      
+      i++;
+
+      if (i == sentence.length) window.clearInterval(timer);
+    }, 2000);
+
+  </script>
+</body>
+</html>

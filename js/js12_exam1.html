@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <h2 class="words">hi</h2>
+  <h2 class="words">hello</h2>
+  <h2 class="words">bye</h2>
+  
+  <script>
+    // getElementsByClassName
+    // DOM에서 여러 요소들을 찾아 배열에 담아 반환한다.
+    // 이 반환 값을 변수에 대입하면, 변수 words는 Element객체들의 배열을 저장하게 됨
+    var words = document.getElementsByClassName("words");
+
+    // 반복문을 이용해 배열의 각 원소에 순차적으로 접근
+    for(var i = 0; i < words.length; i++){
+      words[i].style.color = "red";
+    }
+
+  </script>
+
+  <!-- ///////////////////////////////////////////////////////////// -->
+  <!-- 연습문제 -->
+  <h2 class="word1">hi</h2>
+  <h2 class="word1">hello</h2>
+  <h2 class="word1">bye</h2>
+
+  <script>
+    
+    var colors = ["red", "blue", "green"];
+    var word1 = document.getElementsByClassName("word1");
+
+    setTimeout(function() {
+
+      for(var i = 0; i < word1.length; i++){
+        word1[i].style.color = colors[i];
+      }
+
+    }, 2000);
+
+  </script>
+  
+  <!-- ///////////////////////////////////////////////////////////// -->
+  <!-- 연습문제 -->
+  <ul id="drink">
+    <li>coffee</li>
+    <li>milk</li>
+    <li>juice</li>
+  </ul>
+
+  <script>
+    // DOM에서 #drink 요소의 자식 요소 중에 li 요소들을 탐색
+    var list = document.querySelectorAll("#drink > li");
+
+    var colors = ["red", "blue", "green"];
+
+    var i = 0;
+
+    var timerId = setInterval(function () {
+      list[i].style.color = colors[i];
+      i++
+      if(i == list.length) clearInterval(timerId);
+    }, 2000);
+
+  </script>
+</body>
+</html>

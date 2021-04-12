@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="demo.css">
+  <style>
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0.8em 0;
+      background-color: #444;
+      padding: 0.8em 1em;
+      border-radius: 8px;
+    }
+
+    #box {
+      width: 300px;
+      height: 300px;
+      background-color: goldenrod;
+      color: navy;
+      font-size: 2em;
+      font-weight: 900;
+      text-align: center;
+      line-height: 300px;
+    }
+
+    @keyframes move {
+      from { margin-left: 0; }
+      50% { margin-left: 600px; }
+      to { margin-left: 0; }
+    }
+
+  </style>
+  <script>
+    // window 객체의 load 이벤트는 브라우저(window)가 HTML 문서의 내용을 모두 읽어 들인 후에 발생한다.
+    // 따라서 load 이벤트가 발생하면 DOM 구축이 끝났다는 의미이므로 JavaScript 프로그램에서 요소들에 정상적으로 접근할 수 있다.
+    window.addEventListener("load", function () {
+
+      // 프로그램에서 참조하는 요소를 미리 탐색
+      var html = document.getElementById("html");
+
+      html.style.color = "blue";
+
+      // nextElementSibling : 탐색된 요소의 다음에 나오는 요소
+      html.nextElementSibling.style.color = "red";
+
+      ////////////////////////////////////////////////////////////////
+
+      // #hello 요소를 클릭하면
+      // #hello 요소가 1초에 걸쳐서 화면 위로 올라가 사라지도록 한다.
+
+      // 1. #hello 요소를 클릭하면
+      document.getElementById("hello").addEventListener("click", function () {
+
+        // 2. #hello 요소가 1초에 걸쳐서 화면 위로 올라가 사라지도록 한다.
+        // → #hello 요소가 화면 위로 올라가 사라지도록 하기 위해 #hello 요소가 이동해야 할 거리
+        // = #hello 요소의 Y축 상의 위치 + #hello 요소의 높이 + 여유분
+        // offsetTop : 요소의 Y축 상의 위치
+        // offsetHeight : 요소의 높이
+        var delta = this.offsetTop + this.offsetHeight + 20;
+
+        this.style.transitionDuration = "1s";
+        this.style.transform = "translateY(-" + delta + "px)";
+
+      });
+
+      /////////////////////////////////////////////////////////////////
+      // #box 요소를 클릭하면
+      // #box 요소가 1초에 걸쳐 오른쪽으로 600px만큼 이동했다가, 1초에 걸쳐 제자리로 돌아오도록 설정
+
+      // 1.#box 요소를 클릭하면
+      document.getElementById("box").addEventListener("click", function () {
+        // 2. #box요소가 1초에 걸쳐 오른쪽으로 600px 만큼 이동했다가,
+        this.style.animation = "2s move";
+
+        // 2초 후에 #box 요소에 설정했던 스타일 속성 제거
+        window.setTimeout(function () {
+          document.getElementById("box").removeAttribute("style");
+        }, 2000);
+      });
+
+
+
+    });
+
+  </script>
+</head>
+<body>
+  <div id="box">BOX</div>
+
+  <h1 id="hello">Hellow World</h1>
+
+  <ul>
+    <li id="html">HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+    <li>jQuery</li>
+    <li>Portfolio</li>
+  </ul>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <pre>
+<script>
+/*
+# 조건문
+  - 조건에 따라서 여러 개의 실행경로 가운데 하나를 선택
+  - 조건이 참인지 거짓인지에 따라 다른 절차를 수행
+  
+  if (표현식) 문장;
+  → 표현식 : True or False 값을 가짐
+  → 표현식이 참이면 실행, 거짓이면 문장을 건너 띔
+
+  if (conditional) 
+    conditional_code;
+    : 같은 문장이길 알려주기 위해서 들여쓰기, 문장이 끝나면 ;
+*/ 
+
+  var score = 86;
+
+  if (score >= 60)
+    document.writeln("Hello World");
+    
+  else// ;으로 조건문 끝
+    document.writeln("Hello World"); // 다른문장으로 봐야 함
+
+  // 바른 문장
+  if (score >= 60)
+    document.writeln("Hello World");
+  document.writeln("Hello World");
+
+  // 복합문(compind statement / block) 이용
+  if (score >= 60) {
+    document.writeln("Hello World");
+    document.writeln("Hello World");
+  }
+
+  // 문제 1 ) 어떤 수가 20보다 크고 40보다 작으면 'Hello World'출력
+  // Hint 논리곱 연산자, 논리합 연산자
+  // 파이썬과 다르게 생각하기 
+  // 파이썬에서는 10 < x < 20 이 가능하지만 자바스크립트에서는 x > 10, x < 20 하나씩 출력해야하고 변수가 항상 왼쪽에 오도록 !
+
+  // 문제 2 ) 어떤 수가 10보다 작거나, 50보다 크면 'Hello World'출력
+
+
+// //////////////////////////////////////////////////////////////////////////
+/*
+# if - else 구문
+  - if 또는 else 다음에는 문장 하나가 나옴. (여러 문장일 때는 블록사용)
+  - else절은 단독으로 나올 수 없다.
+  - else 절은 이미 조건을 가지고 있어서 절대로 표현식이 나올 수 없다.
+*/ 
+
+  // 문제 1 ) 어떤 수가 10보다 크고 60보다 작으면 'Hello World'출력, 그 외는 'Bye JavaScript'출력
+
+  // 문제 2 ) 어떤 수가 5의 배수이면 "'어떤 수'는(은) 5의 배수입니다."출력 , 아니라면 "'어떤 수'는(은) 5의 배수가 아닙니다." 출력
+
+  // 문제 3 ) 임의의 두 수를 정하고 큰 수에서 작은 수를 빼라 (if문 사용)
+  var x = 26;
+  var y = 30;
+
+  // 조건 연산자 이용해 풀이 가능
+  var max = (x > y) ? x : y;
+  var min = (y > x) ? x : y;
+
+  document.writeln(max - min);
+
+  document.writeln((x > y) ? (x - y) : (y - x));
+
+/*
+# 중첩 조건문
+  - 조건문 안에 조건문을 중첩한 경우
+  if (coditional) {
+    if (conditional)
+      conditional_code;
+    else
+      conditional_code;
+  }
+  else
+    conditional_code;
+
+
+# if - else if - esle 구문
+  - 조건문의 else절에 조건문을 넣고 들여쓰기 한 상태
+    if (conditional)
+      conditional_code;
+    else if (conditional)
+      conditional_code;
+    else
+      conditional_code;
+
+    if문이 거짓 → else if 실행 → else if문이 거짓 → else문 실행
+    
+    
+*/
+
+// 문제 4 ) 어떤 수가 홀수인지 짝수인지 판별하라. 단 0일 때는 'zero출력'
+// tip) 교집합을 먼저 출력해줘야 그 다음 결과 값이 나옴
+
+// 문제 5 ) 
+// 어떤수가 3의 배수이면 'Fizz'출력
+// 어떤수가 5의 배수이면 'Buzz'출력
+// 어떤수가 3의 배수이고 5의 배수이면 'FizzBuzz'출력
+
+</script>
+</pre>
+  </body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="demo.css">
+  <style>
+
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0.8em 0;
+      background-color: #444;
+      padding: 0.8em 1em;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- 연습문제 1 -->
+  <h1 id="hello">Hello World!</h1>
+
+  <script>
+    // #hello 요소를 클릭하면 #hello 요소가 화면에서 사라지도록 한다.
+    // 1. #hello 요소를 클릭하면
+    // 2. #hello 요소가 1초에 걸쳐서 화면에서 사라지도록 한다.
+    
+    // 프로그램에서 참조하는 요소를 미리 탐색
+    var hello = document.getElementById("hello");
+    
+    // 1. #hello 요소를 클릭하면
+    // → #hello 요소의 onclick 이벤트 속성에 이벤트 핸들러를 연결해서 구현
+    // 이벤트 핸들러 : #hello 요소에 click 이벤트가 발생하면 실행할 기능
+    hello.onclick = function () {
+      
+      // 2. #hello 요소가 화면에서 사라지도록 한다.
+      // this 키워드 : 메서드를 호출하기 위해 접근하고 있는 객체를 나타내는 키워드
+      // → 이벤트 핸들러에서는 이벤트가 발생한 객체를 나타낸다.
+      this.style.transitionDuration = "1s";
+      // this.style.visibility = "hidden";
+      // this.style.display = "none";
+      this.style.opacity = "0";
+
+    };
+  </script>
+
+
+  <!-- 연습문제2 -->
+  <!-- ////////////////////////////////////////////////////////// -->
+  <h1 id="dream">Dream comes true!</h1>
+  
+  <p>
+    <button id="bg">background-color : yellowgreen</button>
+    <button id="color">color : navy</button>
+    <button id="reset">RESET</button>
+  </p>
+
+  <script>
+    // 1. #bg 요소를 클릭하면
+    // 2. #dream 요소의 배경색을 설정한다.
+    // 3. #color  요소를 클릭하면
+    // 4. #dream 요소의 글자 색상을 설정한다.
+    // 5. #reset 요소를 클릭하면
+    // 6. #dream 요소가 초기화된다.
+
+    // 프로그램에서 여러 번 참조하는 요소를 미리 탐색
+    var dream = document.getElementById("dream");
+
+    // 1. #bg 요소를 클릭하면
+    document.getElementById("bg").onclick = function () {
+      // 2. #dream 요소의 배경색을 설정한다.
+      dream.style.backgroundColor = "yellowgreen";
+    };
+    
+    // 3. #color  요소를 클릭하면
+    document.getElementById("color").onclick = function () {
+      // 4. #dream 요소의 글자 색상을 설정한다.
+      dream.style.color = "navy";
+    };
+    
+    // 5. #reset 요소를 클릭하면
+    document.getElementById("reset").onclick = function () {
+      // 6. #dream 요소가 초기화된다.
+      dream.removeAttribute("style");
+    };
+  </script>
+
+
+  <!-- 연습문제3 -->
+  <!-- ////////////////////////////////////////////////////////// -->
+  <h1 id="ex">Example</h1>
+  <p>
+    <button id="change">change</button>
+  </p>
+
+  <script>
+    // 1. #change 요소를 클릭하면
+    // 2. #ex 요소의 글자 색상을 red, green, blue, gold, red, green....으로 설정
+    
+    // 프로그램에서 여러 번 참조하는 요소를 미리 탐색
+    var ex = document.getElementById("ex");
+    
+    // #ex 요소에 설정할 글자 색상을 담고 있는 배열
+    var colors = ["red", "green", "blue", "gold"];
+    
+    // #ex 요소에 설정한 글자 색상을 결정할 인덱스 변수
+    var i = 0;
+    
+    // 1. #change 요소를 클릭하면
+    //    → #change 요소에 click 이벤트 핸들러를 연결해서 구현
+    document.getElementById("change").onclick = function() {
+      ex.style.color = colors[i];
+      
+      i++;
+
+      i %= colors.length;
+    };
+    
+    // 2. #ex 요소의 글자 색상을 red, green, blue, gold, red, green....으로 설정
+
+  </script>
+
+
+  <!-- 연습문제 4 -->
+  <!-- /////////////////////////////////////////////////////////// -->
+
+  <h1 id="step">Step by step goes a long way.</h1>
+  <p>
+    <button id="toggle">TOGGLE</button>
+  </p>
+
+  <script>
+    // #toggle 요소를 클릭하면
+    // #step 요소의 글자 색상을 빨간색으로 바꾸고
+    // #toggle 요소의 내부 문자를  "RESET"으로 설정
+    // #toggle 요소를 클릭하면
+    // #step 요소의 글자 색상을 제거하고
+    // #toggle 요소의 내부 문자를 "TOGGLE"로 설정
+    
+    // 프로그램에서 참조하는 요소를 미리 탐색
+    var step = document.getElementById("step");
+    
+    // 1. #toggle 요소를 클릭하면
+    //    → #toggle 요소에 click 이벤트 핸들러를 연결해서 구현
+    document.getElementById("toggle").onclick = function () {
+      if (this.innerHTML == "TOGGLE") {
+        // 2. #step 요소의 글자 색상을 빨간색으로 바꾸고
+        step.style.color = "red";
+
+        // 3. #toggle 요소의 내부 문자를  "RESET"으로 설정
+        this.innerHTML = "RESET";
+      }
+      // 3. #toggle 요소의 내부 문자가 "RESET" 일 때, #toggle 요소를 클릭하면
+      else {
+        // #step 요소의 글자 색상을 제거하고
+        step.style.color = "";
+
+        // #toggle 요소의 내부 문자를 "TOGGLE"로 설정
+        this.innerHTML = "TOGGLE"
+
+      }
+    };
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Document</title>
+  <!-- CSS 초기화: 브라우저에서 기본 설정하는 스타일 속성 제거 -->
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    h1 {
+      font: 2em;
+      font-weight: bold;
+      margin: 0.8em 0;
+    }
+  </style>
+  <!-- jQuery를 사용하기 위해서는 먼저 jQuery 라이브러리 파일을 불러와야 한다. -->
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script>
+    /*
+    *
+    jQuery를 이용해 JavaScript 프로그램을 작성한다는 것은 jQeruy 객체의 메서드를 이용해 JavaScript를 작성한다는 것인다. 따라서, 항상 jQuery 객체부터 만들어야 한다. 그리고 jQuery 객체는 jQuery 함수를 호출해서 생성한다. jQuery 함수의 반환 값은 객체이며, 이 객체를 통칭해서 jQuery 객체라고 부른다.
+
+    *
+    jQuery에서는 window 객체의 load 이벤트와 비슷한 document 객체의 ready 이벤트를 이용한다. 따라서 작성하고자 하는 기능은 document 객체의 ready 이벤트 핸들러에 작성한다.
+
+    *
+    jQuery 객체의 ready 메서드 - document 객체의 ready 이벤트 핸들러 연결 → jQuery 객체의 이벤ㅌ, 관련 메서드는 addEventListner 메서드와 비슷하게 여러 이벤트 핸들러를 순차적으로 연결시켜준다.
+
+    *
+    jQuery를 이용해 JavaScript 프로그램을 작성하면서 '$' 기호를 단독으로 사용하면 이는 jQuery 함수의 별명으로 사용된다.
+
+    *
+    jQuery(document).ready(function () { ... });
+    → $(document).ready(function () { ... });
+    → $(function () { ... });
+
+    *
+    jQuery 함수
+    → 반환 값: jQuery 객체
+    → 인자 1. 객체(object) - window 객체, document 객체, Element 샛체 등
+      인자 2. 함수(function) - document 객체의 ready 이벤트 핸들러를 연결
+      인자 3. 선택자 형태를 갖는 문자열(string) - DOM에서 선택자로 요소를 탐색
+      인자 4. HTML 마크업 형태를 갖는 문자열(string) - 새로운 요소를 생성 
+    */
+  </script>
+  <script>
+    $(function () {
+      // 이벤트 핸들러: document 객체에서 ready 이벤트가 발생하면 실행할 기능
+      // → HTML 문서를 읽어들인 후 해석하고 DOM 구축을 끝낸 시점에 발생하는 이벤트
+      // ? DOM(Document Object Model) ? : HTML 요소들의 구조화된 표현
+      // → window 객체의 load 이벤트와 비슷한 시점에서 발생하는 이벤트 
+
+      // --------------------------------------------------------------------------------------------
+      // 1. 3초가 지난 다음
+      window.setTimeout(function () {
+        // 이 함수는 setTimeout 메서드로 등록한 타이머에 의해 3000ms가 지난 다음 실행된다.
+
+        // 2. #dream 요소가 1초에 걸쳐서 흐릿하게 사라지도록 설정
+        //  css 메서드를 이용해 스타일 속성을 조작할 때, 인자로 객체를 넣어서 여러 스타일 속성을 한꺼번에 설정할 수 있다.
+        $('#dream').css({
+          'transition-duration': '1s',
+          'visibility': 'hidden',
+          'opacity': '0'
+        });
+
+        /*
+        *
+        한 요소를 여러 번 탐색하는 것은 브라우저에 부담을 주는 행위이다.
+        $('#dream').css('transition-duration', '1s');
+        $('#dream').css('visibility', 'hidden');
+        $('#dream').css('opacity', '0');
+
+        → var $dream = $('#dream');
+          → 여러 번 참조하는 요소는 미리 찾아서 변수에 대입한 후 접근
+          → jQuery 함수의 반환 값, 즉 jQuery 객체를 변수 $dream에 대입
+            이제부터 변수 $dream을 통해 #dream 요소를 포함하고 있는 jQuery 객체에 접근한다.
+            변수 이름 앞에 $ 기호를 붙이는것은 이 변수에 jQuery 객체가 대입되어 있음을 나타내는 관례이다.
+
+        *
+        메서드 체이닝(method chaning)
+        $('#dream').css('transition-duration', '1s').css('visibility', 'hidden').css('opacity', '0');
+        
+        → jQuery 객채가 담고 있는 객체를 조작하는 jQuery 메서드들은 그 메서드에서 조작한 jQuery 객체를 반환한다. 따라서 jQuery를 이용해서 JavaScript 프로그램을 작성하면 jQuery 메서드들을 연계해서 호출할 수 있다.
+
+        */
+      }, 3000);
+    }); // document.onready
+  </script>
+</head>
+<body>
+  <h1 id="dream">Dream comes true!</h1>
+</body>
+</html>

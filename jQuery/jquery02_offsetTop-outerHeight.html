@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    h1 {
+      font-size: 2em;
+    }
+
+    #box {
+      width: 400px;
+      height: 400px;
+      margin: 50px auto;
+      background: deeppink;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(function () {
+      
+      var $wonderful = $('#wonderful');
+
+      // 1. 5초가 지난 다음
+      window.setTimeout(function () {
+
+        // 1.1 #wonderful 요소의 위치와 높이를 구해 이동할 거리를 계산한다.
+        // 이동할 거리 = (#wonderful 요소의 위치) + (#wonderful 요소의 높이) + 여유분
+        var length = $wonderful.offset().top + $wonderful.outerHeight() + 20;
+
+        // 1.2 #wonderful 요소를 계산한 거리만큼 위로 이동시킨다.
+        $wonderful.css({
+          'transition-duration': '400ms',
+          'transform': 'translateY(-' + length + 'px)'
+        });
+      }, 5000);
+
+      // 1. 3초가 지난 다음
+      window.setTimeout(function () {
+        
+        // 1.1 #box 요소가 점차 동그랗게 가운데로 작아지면서 사라지도록 한다. 
+        $('#box').css({
+          'transition-duration': '1s',
+          'border-radius': '50%',
+          'transform': 'scale(0)'
+        });
+      }, 3000);
+    });
+  </script>
+</head>
+<body>
+
+  <div id="box"></div>
+  <h1 id="wonderful">What A Wonderful Day!</h1>
+  
+</body>
+</html>

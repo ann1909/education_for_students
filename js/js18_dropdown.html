@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="font.css">
+  <style>
+    
+    /* 헤더 영역 */
+    #header > h1 {
+      font-size: 2.4em;
+      font-weight: 900;
+      text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+      padding: 0.6em 1em;
+    }
+
+    /* 내비게이션 영역 */
+    #nav {
+      background-color: #555;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.4);
+      margin-bottom: 5px;
+    }
+
+    #nav::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    #nav > ul:first-child { float: left; }
+    #nav > ul:last-child { float: right; }
+
+    #nav > ul >li {
+      float: left;
+
+      /* .dropdown 요소가 이 요소의 영역을 기준으로 배치되도록 설정 */
+      position: relative;
+    }
+
+    #nav > ul > li > a {
+      display: block;
+      padding: 1em 2em;
+      text-decoration: none;
+      color: white;
+      text-shadow: 0 0 2px black;
+      transition-duration: 0.2s;
+    }
+
+    #nav > ul > li > a:hover {
+      background-color: black;
+    }
+
+    /* 드롭다운 메뉴 */
+    .dropdown {
+      position: absolute;
+      top: 105%;
+      left: 0;
+      padding: 1em;
+      background-color: #555;
+      border-radius: 4px;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.4);
+      
+      /* 드롭다운 메뉴는 처음에는 보이지 않는다. */
+      display: none;
+    }
+
+    .dropdown > li > a {
+      display: block;
+      padding: 0.4em 1em;
+      text-decoration: none;
+      color: white;
+      text-shadow: 0 0 2px black;
+    }
+
+    /* 가변 폭 레이아웃(fluid layout) */
+    #container {
+      /* 화면 오른쪽으로 벗어난 #wrap 요소의 영역을 숨기기 위해 */
+      overflow: hidden;
+    }
+
+    #sidebar {
+      float: left;
+      width: 200px;
+    }
+
+    #wrap {
+      float: left;
+
+      /* #content 요소의 너비를 (#container 요소의 너비) - (#sidebar 요소의 너비)로 설정하기 위해 #wrap 요소의 너비를 #container 요소의 너비만큼 설정 */
+      width: 100%;
+
+      /* #sidebar 요소와 나란히 배치하기 위해 #sidebar 요소의 너비만큼 오른쪽으로 밀어낸다 */
+      margin-right: -200px;
+    }
+
+    /* 본문 영역 */
+    #content {
+      /* #wrap 요소를 #sidebar 요소의 너비만큼 화면 오른쪽으로 밀어내면 #content 요소의 컨텐츠 또한 화면 바깥으로 밀려난다. 이를 방지하기 위해 #content 요소를 #sidebar 요소의 너비만큼 화면 안쪽으로 밀어넣어준다. */
+      margin-right: 200px;
+      
+      padding: 2em;
+      border-left: 1px solid #aaa;
+    }
+
+    #content > h2 {
+      font-size: 1.6em;
+      font-weight: bold;
+      margin-bottom: 0.8em;
+    }
+
+    #content > p {
+      line-height: 1.8;
+      margin-top: 1em;
+    }
+
+    /* 사이드바 영역 */
+    #sidebar {
+      padding-top: 1em;
+    }
+
+    #sidebar > ul > li > a {
+      display: block;
+      padding: 0.4em 1em;
+      text-decoration: none;
+      color: black;
+    }
+
+    /* 푸터 영역 */
+    #footer {
+      padding: 3em;
+      border-top: 1px solid #aaa;
+      text-align: right;
+      font-size: 0.86em;
+    }
+
+  </style>
+
+  <script>
+    // 이벤트 핸들러 : window 객체에 load 이벤트가 발생하면 실행할 기능
+    // window 객체의 load 이벤트는 브라우저(window)가 HTML 문서의 내용을 모두 읽어 들인 후에 발생한다. 따라서 load 이벤트가 발생하면 DOM 구축이 끝났다는 의미이므로 JavaScript 프로그램에서 요소들에 정상적으로 접근할 수 있다.
+    window.addEventListener("load", function () {
+      
+      // 1. .menu-item 요소에 클릭하면
+      // 2. 클릭한 요소 다음에 나오는 .dropdown 요소가 화면에 보이는 경우
+      // 3. 클릭한 요소 다음에 나오는 .dropdown 요소가 화면에 보이지 않게 하고
+      // 4. 클릭한 요소 다음에 나오는 .dropdown 요소가 화면에 보이지 않는 경우
+      // 5. 이전에 화면에 표시되어 있던 .dropdown 요소를 화면에서 숨긴 다음
+      // 6. 클릭한 요소 다음에 나오는 .dropdown 요소를 화면에 표시한다.
+
+      var menuItems = document.getElementsByClassName("menu-item");
+      var dropdowns = document.getElementsByClassName("dropdown");
+
+      // 1. .menu-item 요소에 클릭하면
+      for (var i = 0; i < menuItems.length; i++) {
+        menuItems[i].addEventListener("click", function (e) {
+          
+          // 기본 이벤트 제거
+          e.preventDefault();
+
+          // 클릭한 요소 다음에 나오는 .dropdown 요소
+          var dropdown = this.nextElementSibling;
+
+          // 2. 클릭한 요소 다음에 나오는 .dropdown 요소가 화면에 보이는 경우
+          if (dropdown.style.display == "block")
+            // 3. 클릭한 요소 다음에 나오는 .dropdown 요소가 화면에 보이지 않게 하고
+            dropdown.style.display = "";
+
+          // 4. 클릭한 요소 다음에 나오는 .dropdown 요소가 화면에 보이지 않는 경우
+          else {
+            // 5. 이전에 화면에 표시되어 있던 .dropdown 요소를 화면에서 숨긴 다음
+            for (var i = 0; i < dropdowns.length; i++) {
+              dropdowns[i].style.display = "";
+            }
+            // 6. 클릭한 요소 다음에 나오는 .dropdown 요소를 화면에 표시한다.
+            dropdown.style.display = "block";
+
+          }
+
+          
+        });
+      }
+
+    });
+
+  </script>
+</head>
+<body>
+  <!-- 헤더 영역 -->
+  <header id="header">
+    <h1>Fluid Layout</h1>
+  </header>
+
+  <!-- 내비게이션 영역 -->
+  <nav id="nav">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li>
+        <a href="#" class="menu-item">HTML</a>
+        
+        <ul class="dropdown">
+          <li><a href="#">Tutorial</a></li>
+          <li><a href="#">Reference</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Exerxise</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#" class="menu-item">CSS</a>
+      
+        <ul class="dropdown">
+          <li><a href="#">Tutorial</a></li>
+          <li><a href="#">Reference</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Exerxise</a></li>
+        </ul>
+      </li>
+      
+      <li>
+        <a href="#" class="menu-item">JavaScript</a>
+      
+        <ul class="dropdown">
+          <li><a href="#">Tutorial</a></li>
+          <li><a href="#">Reference</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Exerxise</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="#" class="menu-item">jQuery</a>
+      
+        <ul class="dropdown">
+          <li><a href="#">Tutorial</a></li>
+          <li><a href="#">Reference</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Exerxise</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul>
+      <li><a href="#">Log in</a></li>
+      <li><a href="#">Sign in</a></li>
+    </ul>
+  </nav>
+
+  <div id="container">
+    <aside id="sidebar">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">HTML</a></li>
+        <li><a href="#">CSS</a></li>
+        <li><a href="#">JavaScript</a></li>
+        <li><a href="#">jQuery</a></li>
+      </ul>
+    </aside>
+
+    <div id="wrap">
+      <article id="content">
+        <h2>Hihhihihi hihihih</h2>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+        </p>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+        </p>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+        </p>
+
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere officia, unde quasi quod enim quidem. Assumenda temporibus recusandae, rerum repudiandae delectus possimus praesentium eaque nihil, ipsum debitis adipisci, nisi dolores.
+        </p>
+
+      </article>
+    </div>
+  </div>
+
+  <footer id="footer">
+    &copy; 2021 Areum Kim
+  </footer>
+</body>
+</html>

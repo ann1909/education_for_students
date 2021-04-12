@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="demo.css">
+  <style>
+
+    body { padding: 2em; }
+
+    #photo {
+      display: block;
+      max-width: 1080px;
+      margin: 0 auto;
+      border: 10px solid white;
+      box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.8);
+    }
+
+    #thumbnails {
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    #thumbnails > li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    #thumbnails > li > img {
+      display: block;
+      width: 200px;
+      border: 4px solid white;
+    }
+
+
+
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img src="https://i.imgur.com/M23mN5w.jpg" alt="photo" id="photo">
+
+    <ul id="thumbnails">
+      <li><img src="https://i.imgur.com/M23mN5w.jpg" alt="Thumbnail"></li>
+      <li><img src="https://i.imgur.com/8jxlW9k.jpg" alt="Thumbnail"></li>
+      <li><img src="https://i.imgur.com/mQEgaEM.jpg" alt="Thumbnail"></li>
+    </ul>
+  </div>
+
+  <script>
+    // 1. #thumbnails 요소의 img 요소를 클릭하면
+    // 2. 클릭한 요소의 src 속성 값을 #photo 요소의 src 속성 값으로 설정
+    
+    // 프로그램에서 참조하는 요소를 탐색
+    var thumbnails = document.querySelectorAll("#thumbnails > li > img");
+    var photo = document.getElementById("photo");
+    
+    // 1. #thumbnails 요소의 img 요소를 클릭하면
+    //    → #thumbnails 요소의 img 요소에 click 이벤트 핸들러를 연결해서 구현
+    for(var i = 0; i < thumbnails.length; i++){
+      thumbnails[i].addEventListener("click", function () {
+        // 이벤트 핸들러 : #thumbnails 요소의 img 요소에 click 이벤트가 발생하면 실행할 기능
+        // onclick은 기능을 덮어쓰고, addEventListner는 또 다른 이벤트 핸들러 추가
+
+        // 2. 클릭한 요소의 src 속성 값을 #photo 요소의 src 속성 값으로 설정
+        photo.src = this.src;
+        // photo.setAttribute("src", this.getAttribute("src"));
+      });
+    }
+    
+  </script>
+
+</body>
+</html>

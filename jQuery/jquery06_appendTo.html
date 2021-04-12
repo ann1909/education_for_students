@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    #list {
+      margin: 100px;
+    }
+
+    #list::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    #list > li {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 20px;
+      color: white;
+      font-size: 3em;
+      font-weight: 900;
+      text-align: center;
+      line-height: 200px;
+    }
+
+    .red { background: red; }
+    .green { background: green; }
+    .blue { background: blue; }
+
+  </style>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(function () {
+      window.setTimeout(function () {
+        var $list = $('#list');
+        // #list 요소의 첫 번째 자식 요소를  #list 요소의 마지막으로 옮긴다.
+        $list.children(':first').appendTo($list);
+      }, 3000);
+    });
+  </script>
+</head>
+<body>
+  <ul id="list">
+    <li class="red">1</li>
+    <li class="green">2</li>
+    <li class="blue">3</li>
+  </ul>
+</body>
+</html>

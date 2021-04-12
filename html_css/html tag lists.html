@@ -1,0 +1,403 @@
+<!-- 문서 형식(document type) 설정: 브라우저에게 이 문서가 HTML5 양식에 맞춰 작성했음을 알림 -->
+<!DOCTYPE html>
+<!-- html 요소 : HTML(Hyper Text Mark up Langauge)문서의 최상위 요소 -->
+<html>
+  <!-- head 요소 : HTML 문서의 정보를 나타내는 요소들의 묶음 -->
+  <head>
+    <!-- meta 요소 : HTML 요소의 메타 정보를 설정하는 요소 -->
+    <!-- charset meta 요소 : HTML 문서에서 사용한 문자 인코딩을 지정 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <!-- title 요소 : HTML 문서의 제목을 설정 -->
+    <title>Document</title>
+    <!-- 
+        link 요소 : 다른 파일을 HTML 문서와 연결 
+        → rel 속성 (relation) : 연결하고자 하는 파일과 HTML 문서의 관계를 설정
+        → href 속성 (hyper reference) : 연결하고자 하는 파일의 URL을 설정 
+    -->
+    <link rel="stylesheet" href="">
+    <!-- style 요소 : 스타일시트(stylesheet) 작성 -->
+    <style>
+      table, th, td {
+        border: 1px solid black;
+      }
+
+      #box {
+        width: 200px;
+        height: 200px;
+
+        color: white;
+        font-weight: 900;
+        font-size: 1.2em;
+        text-align: center;
+        line-height: 200px;
+        background-color: chartreuse;
+      }
+
+      span {
+        font-weight: 900;
+        color: red;
+      }
+    </style>
+    <!-- script 요소 : JavaScript 프로그램 작성 -->
+    <script></script>
+  </head>
+  <!-- body 요소 : HTML 문서의 컨텐츠, 즉 브라우저 화면(viewport)에 표시되는 요소들의 묶음 -->
+  <body>
+    
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- 컨탠츠를 표현하는 요소  -->
+
+    <!-- h 요소 (header) : 제목을 표현  -->
+    <h1>header1</h1>
+    <h2>header2</h2>
+    <h3>header3</h3>
+    <h4>header4</h4>
+    <h5>header5</h5>
+    <h6>header6</h6>
+
+    <!-- p 요소 (paragraph) : 단락을 표현 -->
+    <p>
+      p : Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laudantium rerum
+      commodi velit reprehenderit fuga, dolorem officiis suscipit rem sequi
+      accusamus laborum! Impedit excepturi omnis officia doloremque! Repellendus
+      quisquam pariatur aut?
+    </p>
+
+    <!-- hr 요소 : 가로 구분선을 표현 -->
+    <hr>
+
+    <p>
+      <!-- br 요소 (break) : 단락을 표현 -->
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. BR : <br>
+      Laudantium rerum commodi velit reprehenderit fuga, dolorem officiis
+      suscipit rem sequi accusamus laborum! BR : <br>
+      Impedit excepturi omnis officia doloremque! Repellendus quisquam pariatur
+      aut?
+    </p>
+
+    <!-- 
+        img 요소 (image) : 이미지를 표시 
+        → src 속성 (source) : 표시할 이미비의 URL을 설정
+        → alt 속성 (alternative) : 표시할 이미지의 간략한 설명을 설정
+    -->
+    <img src="images/example.jpg" alt="사진예시" width="400">
+    <img src="https://cdn.pixabay.com/photo/2020/07/22/08/17/power-station-5428427_1280.jpg" alt="이미지 주소 복사" width="400">
+
+    <!-- a 요소 (anchor) : 하이퍼 텍스트(hyper-text)를 표현하는 요소 -->
+    <a href="https://www.naver.com/">Naver</a>
+
+    <!-- 문서 내부에서의 이동 : id 속성의 값이 "here"인 요소가 있는 위치로 이동 -->
+    <a href="#here">Go to HERE!</a>
+
+    <!-- abbr 요소 (abbreviation) : 축약어를 표현 -->
+    <p>
+      The <abbr title="World Health Oranaization">WHO</abbr> was founded in 1948.
+    </p>
+
+    <!-- blockquote 요소 : 인용문을 표현 -->
+    <blockquote>blockquote : 인용문을 나타낼 때 사용하는 태그, 자동 들여쓰기</blockquote>
+
+    <!-- code 요소 : 프로그램 코드 등을 표현 -->
+    <code>code : A piece of computer code</code>
+
+    <!-- ins 요소 (inserted) : 편집한 내용 중 추가한 내용을 표현 -->
+    <ins>ins : 글자 아래 밑줄 생성</ins>
+
+    <!-- del 요소 (deleted) : 편집한 내용 중 삭제한 내용을 표현 -->
+    <del>del : 글자 가운데에 취소선 표현</del>
+
+    <!-- kbd 요소 (keybord) : 키보드 입력을 표현 -->
+    <kbd>kbd : keybord</kbd>
+
+    <!-- mark 요소 : 강조할 컨텐츠를 표현 -->
+    <mark>mark : 강조할 컨텐츠를 표현</mark>
+
+    <!-- pre 요소 (preformatted) : 양식에 맞춰 작성된 컨텐츠를 표현 -->
+    <pre>pre : Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum commodi possimus odio quis numquam accusamus? Quo, vero, iusto obcaecati non itaque minima a illo alias exercitationem ad dignissimos voluptates cum.</pre>
+    
+    <pre>
+    pre :
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+    Voluptatum commodi possimus odio quis numquam accusamus? 
+    Quo, vero, iusto obcaecati non itaque minima a illo alias exercitationem ad dignissimos voluptates cum.
+    </pre>
+
+    <!-- q 요소 (qutation) : 짧은 인용문을 표현 -->
+    <q>q : 짧은 인용문을 표현, 큰 따옴표 생성</q>
+
+    <h1 id="here">HERE!</h1>
+
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- 글자 형태를 표현하는 요소 -->
+
+    <!-- b 요소 (bold) : 굵은 글씨체로 표현 -->
+    <b>b : 굵은 글자, 브라우저 상에서 strong 태그와 구분 불가능</b>
+
+    <!-- i 요소 (italic) : 기울어진 글씨체로 표현 -->
+    <i>i : 주변의 문장과 다른 의미의 느낌을 표현, 현업에서는 icon을 의미할 때 관습적으로 사용</i>
+
+    <!-- em 요소 (emphasized) : 컨텐츠를 강조하기 위해 기울어진 글씨체로 표현 -->
+    <em>em : 이탈릭체로 표현, i 태그와 구분 불가능</em>
+
+    <!-- small 요소 : 작은 글씨로 표현 -->
+    <small>small : 작은 글씨체</small>
+
+    <!-- sub 요소 (subscript) : 아래첨자로 표현 -->
+    <p><sub>아래첨자</sub>글자가 아래로 작아짐</p>
+
+    <!-- sup 요소 (superscript) : 윗첨자로 표현 -->
+    <p><sup>위첨자</sup>글자가 위로 작아짐</p>
+
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- 목록을 표현하는 요소 -->
+
+    <!-- ul 요소 (unordered list) : 순서가 없는 목록을 표현 -->
+    <!-- 
+      목록 안에는 항목들(li 요소들)만 나올 수 있다. 
+      따라서 목록 안에 다른 목록을 넣을 때는 목록의 항목(li 요소) 안에 목록을 작성해야 한다. 
+    -->
+    <ul>
+      <!-- li 요소 (list item) : 순서가 없는 목록이나 순서가 있는 목록에서 항목을 표현 -->
+      <li>ul : 순서가 없는 목록을 표현</li>
+      <li>li : 항목을 표현</li>
+      <li>
+        <!-- ol 요소 (ordered list) : 순서가 있는 목록을 표현 -->
+        <ol>
+          <li>ol : 순서가 있는 목록을 표현</li>
+          <li>이 구조는 중첩된 구조입니다.</li>
+        </ol>
+      </li>
+    </ul>
+
+    <!-- dl 요소 (definition list) : 사전 형태의 정의 목록을 표현 -->
+    <dl>
+      <!-- dt 요소 (definition term) : 정의 목록에서 표제어를 표현 -->
+      <dt>HTML</dt>
+      <!-- dd 요소 (definition description) : 정의 목록에서 설명을 표현 -->
+      <dd>HTML stands for Hyper Text Markup Language.</dd>
+      <dd>HTML is the standard markup language for web pages.</dd>
+
+      <dt>CSS</dt>
+      <dd>CSS is a language that describes the style of an HTML document.</dd>
+      <dd>CSS describes how HTML elements should be displayed.</dd>
+    </dl>
+
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- 표를 표현하는 요소 -->
+
+    <!-- table 요소 : 표를 표현 -->
+    <table>
+      
+      <!-- caption 요소 : 해당 테이블 표의 의미, 타이틀 -->
+      <caption>표 태그</caption>
+
+      <!-- thead 요소 (table header) : 표의 제목 행들의 묶음 -->
+      <thead>
+        <!-- tr 요소 (table row) : 셀들을 묶어주는 행을 표현 -->
+        <tr>
+          <!-- th 요소 (table head) : 제목 셀을 표현 -->
+          <th>header 1</th>
+          <th>header 2</th>
+          <th>header 3</th>
+          <th>header 4</th>
+        </tr>
+      </thead>
+
+      <!-- tbody 요소 (table body) : 본문 행들의 묶음 -->
+      <!-- thead 요소와 tfoot 요소는 생략할 수 있지만 tbody 요소는 생략할 수 없다. -->
+      <tbody>
+        <tr>
+          <!-- td 요소 (table data) : 본문 셀을 표현 -->
+          <!-- rowspan : 세로 병합 -->
+          <td rowspan="2">data 1-1</td>
+          <td>data 1-2</td>
+          <!-- colspan : 가로 병합 -->
+          <td colspan="2">data 1-3</td>
+          <!-- <td>data 1-4</td> -->
+        </tr>
+        <tr>
+          <!-- <td>data 2-1</td> -->
+          <td>data 2-2</td>
+          <td>data 2-3</td>
+          <td>data 2-4</td>
+        </tr>
+      </tbody>
+
+      <!-- tfoot 요소 (table foot) : 푸터 헹들의 묶음 -->
+      <tfoot>
+        <tr>
+          <td>data 3-1</td>
+          <td>data 3-2</td>
+          <td>data 3-3</td>
+          <td>data 3-4</td>
+        </tr>
+      </tfoot>
+
+    </table>
+
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- 입력 양식을 표현하는 요소 -->
+
+    <!-- form 요소 : 입력 양식을 표현 -->
+    <form action="/server/program" method="post">
+      
+      <!-- fieldset 요소 : 관련 있는 입력 요소들을 묶어주는 상자를 표현 -->
+      <fieldset>
+        <!-- 입력 요소들을 묶어주는 상자의 범주를 표현 -->
+        <legend>About Form</legend>
+      
+        <div>
+          <!-- input 요소 : 다양한 형태의 입력 요소를 표현 -->
+          <!-- type 속성에 따라 형태가 결정 -->
+          <!-- placeholder : 입력 전 쓰여져 있는 내용 -->
+          <!-- maxlength : 글자 수의 한계 -->
+          TEXT :
+          <input type="text" name="account" placeholder="your account" size="30" maxlength="10">
+        </div>
+        
+        <div>
+          <!-- input → inline 형식 -->
+          <!-- disabled : 비활성화 -->
+          Password :
+          <input type="password" name="password" disabled>
+        </div>
+
+        <div>
+          BIRTH :
+          <input type="date" name="birth">
+        </div>
+
+        <div>
+          CELLPHONE NUMBER :
+          <input type="tel" name="phone number" placeholder="000-0000-0000">
+        </div>
+
+        <div>
+          <!-- 값을 전달하기 위해서는 value 속성을 설정 -->
+          <!-- checked : 기본적으로 체크 됨 -->
+          CHECKBOX :
+          <input type="checkbox" name="agree" value="yes" id="agree" checked>
+          
+          <!-- 
+            label 요소 : checkbox 등의 입력 요소와 지정한 문구를 연결 
+            id와 for을 이용해 문구를 눌렀을 때도 checkbox에 입력 가능하게 함
+          -->
+          <label for="agree">동의합니까?</label>
+        </div>
+
+        <div>
+          <!-- checkbox 다중선택 가능방법 -->
+          <label>취미</label>
+          <input type="checkbox"> 등산
+          <input type="checkbox"> 독서
+          <input type="checkbox"> 음악감상
+          <input type="checkbox"> 영화
+        </div>
+
+        <div>
+          RADIO :
+          <label>
+            <!-- radio의 경우 같은 name으로 묶어두면 선택 사항 중 하나만 고를 수 있음 -->
+            <input type="radio" name="favorite" value="coffe" checked>커피
+          </label>
+          <label>
+            <input type="radio" name="favorite" value="juice">쥬스
+          </label>
+          <label>
+            <input type="radio" name="favorite" value="tea">차
+          </label>
+        </div>
+
+        <div>
+          EMAIL ADDRESS :
+          <input type="email" name="email">
+        </div>
+
+        <div>
+          <!-- 색상을 고를 수 있는 양식, IE 지원 x -->
+          COLOR :
+          <input type="color" name="color">
+        </div>
+
+        <div>
+          <!-- min : 시작 / max : 최대값 / step : 단계 -->
+          AGE :
+          <input type="number" min="1" max="100" step="5">
+        </div>
+
+        <div>
+          <!-- url 입력시 http:// 입력 필수 -->
+          URL :
+          <input type="url" name="url address" value="http://">
+        </div>
+
+        <div>
+          FILE :
+          <input type="file" name="photo">
+        </div>
+
+        <div>
+          SELECT :
+          <select name="gender">
+            <!-- selected : 기본적으로 선택된 상태 -->
+            <option value="male" selected>남자</option>
+            <option value="female" >여자</option>
+          </select>
+        </div>
+
+        <div>
+          <!-- 여러 줄의 입력 창을 만들 때 / 흔히 댓글 창에 이용 -->
+          TEXTAREA :
+          <textarea cols="50" rows="5">Default value</textarea>
+        </div>
+
+        <div>
+          <!-- 입력하지 않은 부분을 볼 수도 있음 -->
+          <button>버튼</button>
+        </div>
+
+        <div>
+          <!-- 작성한 값을 초기화시킴 -->
+          RESET :
+          <input type="reset" name="reset">
+        </div>
+
+        <br>
+        <label for="browsers">BROWSER :</label>
+        <input list="browsers">
+
+        <!-- 
+          datalist : 사전 저의 된 옵션 목록을 지정
+                    자동 완성 기능 제공
+                    사용자가 데이터를 입력 할 때 미리 정의 된 옵션의 드롭 다운 목록을 볼 수 있음
+        -->
+        <datalist id="browsers">
+          <option value="IE">
+          <option value="Chrom">
+          <option value="Safari">
+        </datalist>
+        
+
+        <div>
+          <!-- 입력 양식의 값을 전달 / value : 이름 바꾸기 -->
+          SUBMIT :
+          <input type="submit" name="submit" value="제출">
+        </div>
+
+      </fieldset>
+
+    </form>
+
+
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------->
+    <!-- 영역을 표현하는 요소 -->
+    <div id="box">box</div>
+    <p>Hello, My name is <span>Areum</span>. I'm 25 years old.</p>
+
+  </body>
+</html>

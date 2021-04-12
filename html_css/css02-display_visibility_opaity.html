@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 요소의 표시</title>
+  <style>
+    /* -- Display -- */
+    .block {
+      /* block */
+      width: 100px;
+      height: 50px;
+      margin: 10px;
+      background: gold;
+    }
+
+    span {
+      /*  
+        inline
+        : width, height 명시 할 수 없음
+        : margin이 위 아래엔 적용 되지 않으
+        : padding이 위 아래는 시각적으로 추가만 되고 공간을 차지 하지 않음 
+      */
+      /* 예시로 width와 height 넣음 */
+      width: 100px;
+      height: 50px;
+      background: mediumaquamarine;
+    }
+
+    button {
+      /* 
+        inline-block
+        : 나열은 inline
+        : 크기설정은 block
+      */
+      width: 100px;
+      height: 50px;
+    }
+
+    /* display addClass */
+    .changeBlock {
+      display: block;
+      margin: 20px;
+    }
+
+    .changeInline {
+      display: inline;
+    }
+
+    #change {
+      display: block;
+      margin: 50px;
+      font-weight: 900;
+      color: red;
+    }
+
+
+    /* -- Visibility -- */
+    /* 
+      visible : 기본값, 요소가 보이도록 설정
+      hidden : 요소가 보이지 않도록 설정 / 요소의 영역은 유지
+    */
+    .wrap::after { content: ""; display: block; clear: both;}
+
+    .visibility {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 15px;
+      background: mediumturquoise;
+      text-align: center;
+      line-height: 200px;
+    }
+
+
+    /* -- Opacity -- */
+    /* 요소의 투명도 설정 : 0.0 부터 1.0 사이의 값으로 요소의 투명도 설정  */
+    .opacity {
+      float: left;
+      width: 200px;
+      height: 200px;
+      margin: 15px;
+      background: mediumturquoise;
+      text-align: center;
+      line-height: 200px;
+    }
+
+  </style>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(function () {
+      // -- Display --
+      $("#change").on("click", function () {
+        $("span").addClass("changeBlock");
+        $(".block").addClass("changeInline");
+        $("button").addClass("changeBlock");
+      });
+
+
+      // -- Visibility --
+      $(".hidden").on("click", function () {
+        $(this).css("visibility", "hidden");
+      });
+      
+
+      // -- Opacity --
+      $(".opacity").on("click", function () {
+        $(this).css("opacity", 0);
+      });
+
+
+    });
+  </script>
+</head>
+<body>
+  <!---- Display ---->
+  <span>span : inline 형식</span>
+  <span>span : inline 형식</span>
+
+  <div class="block">div : block 형식</div>
+  <div class="block">div : block 형식</div>
+
+  <button>button : inline-block 형식</button>
+  <button>button : inline-block 형식</button>
+
+  <button id="change">Click Me!</button>
+
+
+  <!---- Visibility ---->
+  <div class="wrap">
+    <div class="visibility">visible (default)</div>
+    <div class="visibility hidden">Hidden</div>
+  </div>
+
+
+  <!---- Opacity  ---->
+  <div class="opacity">Click → opacity:0</div>
+</body>
+</html>

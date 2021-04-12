@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 새로운 HTML 요소의 생성과 연결
+    // document.createElement(tagName) : 요소 노드 생성
+    // document.createTextNode(text) : 텍스트 노드 생성
+    // element.appendChild(node) : Element 객체의 마지막 자식 요소로 노드를 추가
+
+    // Node(노드)란?
+    // : HTML DOM은 노드(node)라고 불리는 계층적 단위에 정보를 저장
+    // : HTML DOM은 이러한 노드들을 정의하고, 그들 사이의 관계를 설명해 줌
+
+    // 새로운 Element 객체와 텍스트를 body에 추가하기 1.
+
+    var node = document.createElement("h2"); // 새로운 Element 객체를 생성
+    var text = document.createTextNode("Nice"); // 새로운 텍스트 노드 생성
+
+    node.appendChild(text); // 생성한 텍스트 노드를 Elemenet 객체에 추가
+
+    document.body.appendChild(node); // Element 객체를 body에 추가
+
+    // 새로운 Element 객체와 텍스트를 body에 추가하기 2.
+    var node1 = document.createElement("h2");
+    node1.innerHTML = "Good";
+    document.body.appendChild(node1);
+</script>
+
+  <!-- //////////////////////////////////////////////////////////// -->
+  <h1 id="remove">Bye</h1>
+  <script>
+    // HTML 요소의 제거
+    // element.removeChild(child) : Element 객체의 자식 노드 제거
+    var obj = document.getElementById("remove");
+    obj.parentNode.removeChild(obj);
+    // parentNode : 자식 노드의 제거는 부모 노드에서만 할 수 있다.
+  </script>
+
+  <!-- //////////////////////////////////////////////////////////// -->
+  <h1 id="clone">Hello</h1>
+  <script>
+    // HTML 요소의 복제
+    // element.cloneNode(deep) : Element 객체를 복제해 새로운 Element 객체 생성
+    // 매개변수 deep은 blooean 타입
+    var ele = document.getElementById("clone");
+    var clone = ele.cloneNode(true);
+    document.body.appendChild(clone);
+
+  </script>
+</body>
+</html>
