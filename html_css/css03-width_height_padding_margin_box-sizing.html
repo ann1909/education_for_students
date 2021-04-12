@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 요소의 박스 모델</title>
+  <style>
+    
+    /* -- width & height -- */
+    /* 
+      width : 요소의 너비를 설정
+      height : 요소의 높이를 설정
+            : auto, lenght, perentage
+    */
+    .wnh {
+      width: 12em;
+      height: 6em;
+      background: mediumaquamarine;
+
+      text-align: center;
+      line-height: 6em;
+    }
+
+    /* -- box-sizing -- */
+    /*  
+      width 스타일 속성과 height 스타일 속성이 어떤 영역의 크기를 설정할지 지정
+      content-box : [default] 콘텐트 영역의 크기를 설정
+      border-box : 테두리를 포함하는 영역의 크기를 설정
+    */
+    .box {
+      width: 20em;
+      height: 10em;
+      padding: 10px;
+      /* margin: 10px; */
+      background: mediumorchid;
+      border: 10px solid gold;
+      
+      text-align: center;
+      line-height: 6em;
+    }
+
+    .sizing {
+      box-sizing: border-box;
+    }
+
+  
+  </style>
+</head>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<script>
+  $(function () {
+    // -- padding & margin --
+    // padding : 요소의 내부 여백의 크기를 설정
+    // margin : 요소의 외부 여백의 크기를 설정
+    // auto, length, percentage
+    $(".wnh").on("click", function () {
+      $(this).css({
+        "padding": "20px",
+        "margin": "20px"
+      });
+    });
+    
+  });
+</script>
+<body>
+
+  <!---- width & height  /  padding & margin ---->
+  <div class="wnh">width and height</div>
+  <div class="wnh">width and height</div>
+
+  <!---- box-sizing ---->
+  <div class="box">box sizing : contnet-box (default)</div>
+  <div class="box sizing">box sizing : border-box</div>
+
+</body>
+</html>

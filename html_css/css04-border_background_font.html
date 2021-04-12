@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Border, Background, Font</title>
+  <style>
+
+    /* -- Border -- */
+    /*
+      border-width : 테두리의 두께를 설정
+      border-style : 테두리의 형태를 설정
+      border-color : 테두리의 색상을 설정
+      border : 테두리와 관련된 스타일 속성들의 값을 한꺼번에 설정
+      border-radius : 테두리의 모서리를 둥글게 만들기 위해 설정하는 원의 반지름 설정
+    */
+    .border {
+      width: 200px;
+      height: 200px;
+      background-color: gold;
+      border-width: 20px;
+      border-style: solid;
+      border-color: aqua;
+      border-radius: 120px;
+    }
+
+    #border {
+      width: 200px;
+      height: 200px;
+      background: gold;
+      border: 20px solid aqua;
+      border-radius: 50px;
+    }
+
+    /* -- Background -- */
+    /* 
+      background-color : 배경색을 설정
+      background-image : 배경에 널을 이미지를 설정
+      background-size : 배경 이미지의 크기를 설정
+      background-attachment : 배경 이미지를 어떤 방식으로 넣을 것인지 설정
+      background-position : 배경 이미지의 위치를 설정
+      background : 배경과 관련된 스타일 속성들의 값을 한꺼번에 설정, "/" size 앞에 슬래쉬
+      background-clip : 배경색을 넣을 영역을 설정
+    */
+    .back {
+      width: 500px;
+      height: 500px;
+      background-image: url(https://cdn.pixabay.com/photo/2020/07/23/07/10/market-5430564_1280.jpg);
+      background-size: contain;
+      background-attachment: local;
+      background-repeat: no-repeat;
+      background-position: left;
+      padding: 100px;
+      background-clip: content-box;
+      border: 10px solid aquamarine;
+    }
+
+    /* -- Font -- */
+    /*
+      font-size : 글자 크기를 설정
+      font-family : 글꼴을 설정
+      font-style : 글자의 기울기를 설정
+      font-weight : 글자의 두께를 설정
+      font-variant : 글자의 변형을 설정
+      font : 글자와 관련된 스타일 속성들의 값을 한꺼번에 설정, "/" line-height 앞에 슬래쉬
+      letter-spacing : 글자와 글자 사이의 간격을 설정
+      text-align : 글자의 정렬을 설정
+      text-decoratrion : 글자를 꾸미기 위해 어디에 줄을 그릴 것인지 설정
+      text-indent : 들여쓰기의 크기를 설정
+      white-space : 요소 내의 공백 문자를 어떻게 처리할지 설정
+    */
+    .font {
+      font-size: 3em;
+      font-family: Arial, Helvetica, sans-serif;
+      font-style: italic;
+      font-weight: 800;
+      font-variant: small-caps;
+      white-space: pre;
+      color: gold;
+    }
+
+    .line {
+      width: 400px;
+      height: 200px;
+      line-height: 200px;
+      letter-spacing: 10px;
+      text-align: center;
+      text-decoration: underline;
+      text-indent: 20%;
+      background: red;
+    }
+
+    .f {
+      font-variant: small-caps;
+    }
+
+    .hhh {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      text-align: justify;
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background: coral;
+      font-size: 3em;
+      color: white;
+      line-height: 200px;
+      text-align: justify;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .test {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      white-space: pre-line;
+    }
+    
+    .test-a {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <pre>
+    sfkldkfj 
+    skjlsjl
+    oqhsdfldj
+  </pre>
+
+
+  <p class="test">lsfkjldjkssdkfsjsdfhlsdfldsfklj
+                sdsg;sal
+    sdlfjs;gj;s;lk;f
+    fdsjfsdj;k
+  </p>
+  <p class="test-a">lsfkjldjkssdkfsjsdfhlsdfldsfklj
+    sdsg;sal
+    sdlfjs;gj;s;lk;f
+    fdsjfsdj;k
+    </p>
+
+  <a href="#">dfjhsfhjsdl</a>
+  <div class="box">
+    box
+  </div>
+
+  <p class="hhh">
+    dsflkdfjlsjljfdsflkdfjlsjljfddsflkdfjlsjljfddsflkdfjlsjljfd 
+
+  </p>
+  
+  <!---- Border ---->
+  <div class="border"></div>
+
+  <div id="border"></div>
+
+  <!---- Background ---->
+  <div class="back"></div>
+
+  <!---- Font ---->
+  <p class="font">
+    글자와 관련돤 스타일 속성 
+    font style
+  </p>
+
+  <p>
+    adasdnjashfhaf
+  </p>
+
+  <p>SJFHAJALKFLASH</p>
+
+  <p class="f">
+    adasdnjashfhaf
+  </p>
+
+  <div class="line">line height</div>
+
+</body>
+</html>
