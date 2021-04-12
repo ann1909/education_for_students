@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/js/font.css">
+  <link rel="stylesheet" href="/js/demo.css">
+  <style>
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+  <ul id="list">
+    <li title="html">course 1</li>
+    <li title="css">course 2</li>
+    <li title="JavaScript">course 3</li>
+    <li title="jQuery">course 4</li>
+  </ul>
+
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      // li 요소들에서 , title 속성 값을 내부 문자로 가지는 새로운 strong  요소를 각각의 li 요소에 추가하고
+      // each 메서드를 이용해 각각의 li 요소에 순차적으로 접근해서 조작하도록 한다
+      $('#list > li').each(function (index, item) {
+
+        var title = $(this).attr("title");
+
+        $(this).append(" ", $("<strong></strong>").html(title));
+
+      });
+
+    });
+  </script>
+</body>
+</html>

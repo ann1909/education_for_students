@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=`, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/js/font.css">
+  <link rel="stylesheet" href="/js/demo.css">
+  <style>
+
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    h1 {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 0.8em 0;
+      background-color: #444;
+      padding: 0.8em 1em;
+      border-radius: 8px;
+    }
+
+  </style>
+</head>
+<body>
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+        // 스크롤이 될 때마다 새로운 요소 생성
+        
+        for(var i = 0; i < 20; i++){
+          // 문서에 요소 추가  
+          $("<h1></h1>").html("hello world!").appendTo(document.body);
+        }
+
+        // 스크롤이 남아있는 높이가 이 값보다 작아지면 새로운 요소들을 추가
+        var specifiedHeight = 100;
+
+        // 새로 추가한 요소들의 개수
+        var no = 0;
+
+        // 브라우저가 스크롤 되면
+        $(window).on("scroll", function () {
+          // 만약 새로 추가한 컨텐츠가 100개가 넘으면 더 이상 추가하지 않는다.
+          if (no >= 100) return;
+
+          // 스크롤이 남아있는 높이 계산
+          // = (문서의 높이) - (뷰포트으 높이) - (스크롤 된 높이)
+          var remainingHeight = $(document).height() - $(window).height() - $(window).scrollTop();
+
+          // 스크롤이 남아있는 높이가 지정한 값보다 작은지 확인
+          if ( remainingHeight < specifiedHeight) {
+            // 새로운 요소 추가
+            for(var i = 0; i < 20; i++){
+              // 문서에 요소 추가  
+              $("<h1></h1>").html("hello world!").appendTo(document.body);
+            }
+          }
+        });
+
+    });
+  </script>
+</body>
+</html>

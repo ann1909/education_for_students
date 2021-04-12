@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <style>
+
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    button {
+      display: block;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    button > span { display: none; }
+
+    #menu {
+      width: 50px;
+      height: 50px;
+      position: absolute;
+      top: 50px;
+      left: 50px;
+      background: url('https://i.imgur.com/WkigMaa.png') no-repeat center / cover;
+    }
+
+    #sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 50%;
+      background-color: darkgoldenrod;
+      left: -50%;
+      transition-duration: 400ms;
+    }
+
+    #close {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      width: 50px;
+      height: 50px;
+      background: url('https://i.imgur.com/BRdH9in.png') no-repeat center / cover;
+    }
+
+
+  </style>
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+  <script>
+    $(function () {
+      
+      var $sidebar = $('#sidebar');
+
+      // 1. #menu 요소를 클릭하면
+      $('#menu').on('click', function () {
+
+        // 1.1 #sidebar 요소가 화면에 나타나록 한다.
+        $sidebar.css('left', 0);
+      });
+
+      // 2. #close 요소를 클릭하면
+      $('#close').on('click', function () {
+        // 2.1. #sidebar 요소를 화면에서 숨긴다.
+        $sidebar.removeAttr('style');
+      });
+    });
+  </script>
+</head>
+<body>
+
+  <button id="menu"><span>Menu</span></button>
+
+  <aside id="sidebar">
+    <button id="close"><span>Close</span></button>
+  </aside>
+
+</body>
+</html>

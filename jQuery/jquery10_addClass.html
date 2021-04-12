@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/js/reset.css">
+  <link rel="stylesheet" href="/js/font.css">
+  <link rel="stylesheet" href="/js/demo.css">
+  <style>
+    body {
+      padding: 3em;
+    }
+
+    #pannel {
+      margin: 100px;
+      width: 1100px;
+    }
+
+    #pannel::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    #pannel > li {
+      float: left;
+      width: 200px;
+      padding: 0 10px;
+      transition-duration: 200ms;
+    }
+
+    #pannel > li.big {
+      width: 300px;
+      margin-top: -33px;
+    }
+
+    #panel > li.small {
+      width: 175px;
+    }
+
+    #pannel > li > img {
+      display: block;
+      width: 100%;
+      border: 5px solid white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <ul id="pannel">
+    <li><img src="https://i.imgur.com/M23mN5w.jpg" alt="photo"></li>
+    <li><img src="https://i.imgur.com/mQEgaEM.jpg" alt="photo"></li>
+    <li><img src="https://i.imgur.com/jdnA9mu.jpg" alt="photo"></li>
+    <li><img src="https://i.imgur.com/pOmi5HE.jpg" alt="photo"></li>
+  </ul>
+
+  <script src="/js/jquery-3.6.0.min.js"></script>
+  <script>
+    $(function () {
+      
+      var $pannelItems = $("#pannel > li");
+      
+      // 1. #pannel 요소의 li 요소의 영역에 마우스 포인터가 들어가면
+      // 2 #pannel 요소의 li 요소의 영역에서 마우스 포인터가 빠져나가면
+      $pannelItems.hover(function () {
+        // 1.1. 그 li 요소의 크기는 키우고
+        // 1.2. 다른 li 요소의 크기는 줄인다.
+        $(this).addClass("big").siblings().addClass("small");
+      }, function () {
+        // 2.1. li 요소들의 크기를 본래대로 되돌린다.
+        $pannelItems.removeAttr("class");
+      });
+    });
+  </script>
+</body>
+</html>

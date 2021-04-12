@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Document</title>
+  <!-- CSS 초기화: 브라우저에서 기본 설정하는 스타일 속성 제거 -->
+  <link rel="stylesheet" href="reset.css">
+  <style>
+
+    html, body {
+      height: 100%;
+    }
+
+    #container::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+
+    #container { height: 100%; }
+
+    #box1, #box2, #box3 {
+      height: 100%;
+      width: 33.3333333%;
+      float: left;
+    }
+
+    #box1 { background: #111; }
+    #box2 { background: #444; }
+    #box3 { background: #999; }
+
+    @media screen and (max-width: 1080px) {
+      #box1, #box2 {
+        width: 50%;
+      }
+
+      #box3 {
+        width: 100%;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      #box1, #box2 {
+        width: 100%;
+      }
+    }
+
+    
+   
+
+  </style>
+</head>
+<body>
+
+  <div id="container">
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+  </div>
+
+</body>
+</html>
