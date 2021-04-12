@@ -1,0 +1,19 @@
+body {
+    font-size: 1.6em;
+    background: #333; color: #ccc;
+    /* padding: 2em; */
+}
+
+pre {
+    padding: 2em;
+    background-color: #444;
+    border-radius: 10px;
+}
+
+a:link {
+    color: deepskyblue;
+}
+
+a:visited {
+    color: mediumpurple;
+}

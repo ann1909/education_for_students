@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="demo.css">
+  <link rel="stylesheet" href="font.css">
+  <style>
+    body {
+      padding: 3em;
+    }
+
+    #container {
+      /* #container 요소의 영역에 li 요소 하나만 표시되도록 크기 설정 */
+      height: 2em;
+      /* #container 요소의 영역에 표시되는 li 요소를 제외한 */
+      overflow: hidden;
+      
+      width: 600px;
+      margin: 100px auto;
+      border: 10px solid goldenrod;
+    }
+
+    #rolling {
+      /* #rolling 요소의 위치를 위로 이동 */
+      position: relative;
+      top: 0;
+    }
+
+    #rolling > li {
+      /* li 요소의 높이를 #container 요소의 높이만큼 설정 */
+      height: 2em;
+
+      padding-left: 1em;
+      line-height: 2em;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <ul id="rolling">
+      <li>hi</li>
+      <li>Bye</li>
+      <li>Hello</li>
+    </ul>
+  </div>
+
+  <script>
+    // 1. 일정한 시간만다 
+    // 2. #rolling 요소를 li 요소의 높이만큼 위로 이동시킨다.
+    // 3. #rolling 요소의 움직임이 끝나면
+    // 4. #rolling 요소의 첫 번째 자식 요소를 #rolling 요소의 마지막으로 옮긴다.
+    // 5. #rolling 요소에 설정했던 스타일 속성을 제거한다.
+
+    // 프로그램에서 참조하는 요소를 미리 탐색
+    var rolling = document.getElementById("rolling");
+
+    // 1. 일정한 시간마다 
+    //    → window.setInterval 메서드로 타이머를 등록해서 구현
+    window.setInterval(function () {
+      
+      // 2. #rolling 요소를 li 요소의 높이만큼 위로 이동시킨다.
+      rolling.style.transitionDuration = "400ms";
+      rolling.style.top = "-100%";
+
+      // 3. #rolling 요소의 움직임이 끝나면
+      window.setTimeout(function () {
+      
+        // 4. #rolling 요소의 첫 번째 자식 요소를 #rolling 요소의 마지막으로 옮긴다.
+        rolling.appendChild(rolling.firstElementChild);
+
+        // 5. #rolling 요소에 설정했던 스타일 속성을 제거한다.
+        rolling.removeAttribute("style");
+      }, 400);
+
+    }, 2000);
+  </script>
+</body>
+</html>

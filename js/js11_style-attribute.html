@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="demo.css">
+  <style>
+    .democlass {
+      color: red;
+    }
+
+    #circle {
+      margin: 2em auto;
+      width: 400px;
+      height: 400px;
+      background: white;
+      text-align: center;
+      line-height: 400px;
+      font-size: 2em;
+      font-weight: 800;
+      color: black;
+    }
+
+    p > h1 {
+      color: aqua;
+    }
+
+    h1 > p {
+      color: aqua;
+    }
+  </style>
+</head>
+<body>
+
+<!--
+  <h1 id="hello">Hello World!</h1>
+
+<script>
+/*
+※ HTML 요소의 속성 참조와 조작
+  - 메서드                                 - 설명
+    element.setAttribute(name, value)       Element 객체의 속성 지정
+    element.getAttribute(name)              Element 객체의 속성 값 반환
+
+*/
+
+  var hello = document.getElementById("hello");
+
+  hello.setAttribute("style", "color : red;");
+
+  // hello.setAttribute("class", "democlass");
+  
+
+</script>
+-->
+<!-- ///////////////////////////////////////////////////////////// -->
+
+  <h1 id="change">Hello Red</h1>
+
+  <!-- 인라인 스타일 : 요소에 직접 스타일 지정 (우선 순위가 가장 높음) -->
+  <h1 style="color: red;">Bye Red!</h1>
+
+<script>
+
+  var change = document.getElementById("change");
+  // change = <h1 id="change">Hello Red</h1>이라는 Element 객체
+
+  change.style.color = "red";
+
+  // Element객체의 style 속성을 통해 요소의 스타일 설정
+  // 요소에 직접 스타일 지정 효과 = 인라인 스타일
+  // 요소에 적용된 인라인 스타일은 우선순위가 가장 높아서 이전 css를 덮어버림
+
+</script>
+
+<!-- //////////////////////////////////////////////////////////////// -->
+
+  <h1 id="nice">Nice to meet you</h1>
+
+  <script>
+    // Q? 3초가 지난 후에 #nice 요소의 배경색을 navy로 설정
+    
+    // 1. 아이디가 nice인 Element 객체를 참조
+    
+    var nice = document.getElementById("nice");
+
+    // 2. 3초가 지난 후에
+    window.setTimeout(function () {
+      // #nice 요소의 배경색을 navy로 지정
+      nice.style.backgroundColor = "navy";
+    }, 3000);
+    
+  </script>
+
+  <!-- //////////////////////////////////////////////////////////////// -->
+  
+  <a href="http//www.google.com"  id="search">Search engine</a>
+  
+  <script>
+    
+    var search = document.getElementById("search");
+    
+    console.log("1번 href");
+    console.log(search.getAttribute("href"));// http//www.google.com
+
+    search.href = "http://www.naver.com";
+    //search.setAttribute("href", "http://www.naver.com");
+
+    console.log("2번 href");
+    console.log(search.getAttribute("href"));
+
+
+    // 메서드 체이닝(method chaining) : 메서드를 연계해서 호출하는 방식
+
+    // document.getElementById("search").setAttribute("href", "http://www.naver.com");
+
+    // document.getElementById("search").href = "http://www.naver.com" ;
+  </script>
+
+
+
+  <div id="circle">Rectangle</div>
+
+  <script>
+    window.setTimeout(function () {
+      // 이 함수는 window.setTimeout 메서드로 등록한 타이머에 의해 2000ms가 지난 후에 실행된다
+      var circle = document.getElementById("circle");
+
+      circle.style.borderRadius = "200px";
+      circle.style.transitionDuration = "0.5s";
+      circle.style.transitionTimingFunction = "ease";
+
+      circle.innerText = "Circle";
+    
+    }, 2000);
+  </script>
+
+
+<!--////////////////// 연습문제 ////////////////////-->
+
+  <h1 id="bb">BYE BYE</h1>
+
+  <h1 id="slow-bb">BYE BYE</h1>
+
+  <h1 id="change-color">change color</h1>
+
+  <script>
+    // 1. 5초 후에 #bb 요소가 화면에서 사라지도록 설정
+    // 2가지, display, visibiliy,opacity
+
+    // 2. 5초 후에 #slow-bb 요소가 1초에 걸쳐서 점차 흐릿하게 사라지도록 설정
+
+    // 3. 2초마다 #change-color에 있는 글씨 색 바꾸기. 단 배열에 있는 숫자 순서대로 색을 바꿔야 한다. 또한 gold에서 red로 넘어가야 한다!
+
+    // 힌트 배열의 인덱스와 배열의 크기를 이용하시오!
+
+    var colors = [
+      "red",
+      "blue",
+      "green",
+      "gold"
+    ];
+
+    
+
+
+  </script>
+
+</body>
+</html>

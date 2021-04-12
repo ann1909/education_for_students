@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="demo.css">
+  <script src="https://code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+<pre>
+<script>
+// 객체 작성 후 출력 후에 객체에 관해 설명 한 후 다양한 연산자로 접근하는 방법알려주기
+
+/*
+  # 객체(object)
+  - 어떤 특정한 대상을 표현하는 여러 값들과 이 값들을 사용하는 기능의 집합
+  - 객체 리터럴({})을 이용해 객체 생성
+  - 객체의 속성(property) : 객체의 각 저장 공간
+  - 객체의 키(key) : 객체의 속성에 접근하기 위해 사용되는 이름(식별자)
+  - 객체의 메서드(method) : 객체의 속성 중 함수를 저장하고 있는 속성
+  - , 로 나열 및 구분
+  - 배열과의 차이점 : 배열은 같은 유형의 여러 값들의 집합
+  - 객체는 각각의 속성들이 의미를 가지고 있기 때문에 이름(key)을 지정해줌
+*/ 
+
+  var object = {
+    // name이라는 key를 가지는 속성 
+    name : "army",
+    age : 25,
+
+    // 값들의 기능(함수)까지 같이 저장
+    printName : function () {
+      // this 키워드 : 객체의 매서드에서 해당 객체를 나타내는 키워드
+      document.writeln("My name is " + this.name); //object.name
+    } 
+  };
+
+  /*
+  # JavaScript에서 중괄호{}를 사용하는 경우
+    1. 여러 문자를 묶어서 블럭을 만들고자 할 때 ex)if
+    2. 함수의 본체를 나타낼 때 ex) function
+    3. 객체를 생성할 때
+  */ 
+
+  // 객체의 메서드 호출 
+  object.printName();
+  // key와 속성 접근 연산자(.)를 이용해 객체의 속성의 접근
+  // 속성 접근 연산자(.) : 객체의 속성에 접근할 때 사용하는 연산자
+  // 첫 번째 피연산자(객체) . 두 번쨰 피연산자(첫 번째 피연사자인 객체의 속성) 
+
+
+  // 1) 속성 연산자로 접근
+  // document.writeln() 파헤쳐보기 
+  document.writeln(object.name);
+  // document : 객체(object)
+  // . : 속성 접근 연산자
+  // writeln : 속성, document의 메서드
+  // () : 함수 호출 연산자;
+
+
+  // 2) 인덱스 연산자로 접근
+  // key와 인덱스 연산자([])를 이용해 객체의 속성에 접근
+  // []안에 "" 붙여주기
+  document.writeln(object["name"]);
+
+
+  // 연습문제 1) 다음 내용에 포함하는 JavaScript 프로그램을 작성
+  // - 직사각형을 표현하는 객체를 생성
+  // - 객체에 넓이를 계산하는 메서드를 추가
+  // - 생성한 객체의 넓이를 출력
+  // - 가로, 세로 길이가 변해도 식은 같아야 함
+  var rect = {
+    width : 13,
+    height : 8,
+    getArea : function () {
+      return this.width * this.height;
+    }
+  };
+
+  rect.width = 10;
+
+  rect.height = 10; 
+
+  document.writeln(rect.getArea());
+
+  
+  // 연습문제 2)
+  // - 반지름이 9인 원을 표현하는 객체를 생성
+  // - 객체의 넓이를 계산하는 메서드와 둘레를 계산하는 메서드를 추가
+  // - 객체의 넓이와 둘레를 출력
+  // pi : 3.14 
+  
+</script>
+
+ 
+</pre>
+</body>
+</html>

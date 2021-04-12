@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  
+</head>
+<body>
+  <script>
+    // document.write 메서드(method)
+    // → 지정한 값을 HTML 문서에 출력하는 기능을 수행
+    // → 문서에 문자, 코드 등을 작성
+    document.write('개행 안 함!');
+    document.write('개행 할 거야!\n');
+
+    // document.writeln 메서드(method)
+    // → 지정한 값을 HTML 문서에 출력하고 마지막에 개행 문자를 덧붙이는 기능을 수행
+    document.writeln('개행 함!');
+    document.writeln('개행 함!');
+    
+    // console.log 메서드
+    // → 지정한 값을 콘솔 창에 출력하는 기능을 수행
+    // → 태그 지정 안 됨
+    console.log('hi');
+    
+  </script>
+
+<!--------------------------------------------------------------->
+<!-- HTML 특성 상 한 줄이 한 칸으로 보이게 됨 -->
+<pre>
+<script>
+// document.write 메서드(method)
+// → 지정한 값을 HTML 문서에 출력하는 기능을 수행
+document.write('개행 안 함!');
+document.write('개행 할 거야!\n');
+
+// document.writeln 메서드(method)
+// → 지정한 값을 HTML 문서에 출력하고 마지막에 개행 문자를 덧붙이는 기능을 수행
+document.writeln('개행 함!');
+document.writeln('개행 함!');
+</script>
+</pre>
+
+<script>
+  // Javascript 입력 
+
+    // promt("출력내용", "입력내용") : 입력창을 통한 입력문
+    // 리턴타입 : string
+    // prompt("이름을 입력해주세요");
+
+    var test = prompt("이름을 입력해주세요");
+    console.log(test); 
+
+    // confirm("출력문작성") : 확인 및 취소를 통한 입력문
+    // 리턴타입 : boolean
+    // confirm("삭제하시겠습니까?");
+</script>
+
+
+</body>
+</html>

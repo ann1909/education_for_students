@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+<pre>
+<script>
+/*
+# 반복문
+
+  - while 구문 : 가장 간단한 형태의 반복문(loop)
+    while (조건식) 문장;
+    → 조건식이 참이면 문장 반복 실행, 거짓이 되면 반복을 멈춤
+    → while (true)일 때는 절대 끝나지 않기 때문에 항상 주의 필요
+
+
+  - do - while 구문 
+    : 먼저 코드 블록을 실행하고 조건을 검사하는 반복문
+    : 코드 블록을 최소한 한 번은 실행해야 하는 경우 사용
+    : 아무리 조건이 거짓일지라도 일단 한 번은 문장을 실행
+    do {
+      statment;
+    } while (condition);
+
+
+  - for 구문
+    → while 구문은 조건에 비중을 두지만, for 구문은 반복 횟수에 비중을 둠
+    for (변수 초기화; 조건식; 조건식 후 실행할 일)
+      문장;
+      → for (;) : 여기서 ;은 문장을 끝내는 의미가 아니고 표현식의 끝을 의미
+      → 변수의 초기화 후 조건식이 참이면 일을 실행
+*/
+for (var i = 1; i < 50; i++)
+    document.writeln("print");
+
+// while
+  var num1 = 0;
+  
+  while (num1 < 2) {
+    document.writeln("hellow World!");
+    num1++;
+  }
+
+
+  // do-while
+  var num2 = 6;
+
+  do {
+    document.writeln("Bye World!");
+    num2++;
+  } while (num2 < 5);
+
+  // do-while을 쓰지 않는다면 한 번이라도 실행되지 않을 문장
+  while (num2 < 5) {
+    document.writeln("Bye World!");
+    num2++;
+  }
+
+
+  for (var i = 1; i <=5; i++)
+    document.writeln("print")
+
+  // while문으로 풀기
+  var i = 1;
+
+  while (i <= 5) {
+    document.writeln("print");
+    i++;
+  }
+
+  // i 인덱스 변수(index variable) : 프로그램에서 일정하게 변하는 값을 나타내는 변수
+
+  // 문제 1 . 10 부터 40중 3의 배수인 수를 출력
+
+
+</script>
+</pre>
+  
+</body>
+</html>

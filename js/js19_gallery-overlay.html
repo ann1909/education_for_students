@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="demo.css">
+  <style>
+
+    body {
+      padding: 3em;
+      font-size: 2em;
+    }
+
+    #gallery {
+      margin: 100px auto;
+    }
+
+    #gallery::after{ content: ""; display: block; clear: both; }
+
+    #gallery > li {
+      float: left;
+      margin: 0 10px;
+    }
+
+    #gallery > li > a { display: block; }
+
+    #gallery > li > a > img {
+      display: block;
+      width: 200px;
+      border: 5px solid white;
+    }
+
+    /* 오버레이 레이어(overlay layer) */
+    #overlay {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+
+      /* 처음에 보이지 않도록 설정 */
+      display: none;
+    }
+
+    #photo {
+      /* #overlay 요소의 영역을 기준으로 중앙에 배치 */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 10px solid white;
+    }
+
+  </style>
+
+  <script>
+    window.addEventListener("load", function () {
+      // 1. #gallery 요소의 a 요소를 클릭하면
+      // 1.1 #photo 요소의 src 속성을 클릭한 요소의 href 속성으로 바꾸고
+      // 1.2 #overlay 요소를 화면에 표시한다.
+      // 2. #overlay 요소를 클릭하면
+      // 2.1 #overlay 요소를 화면에서 숨긴다.
+
+      var thumbnails = document.querySelectorAll("#gallery > li > a");
+      var photo = document.getElementById("photo");
+      var overlay = document.getElementById("overlay");
+
+      // 1. #gallery 요소의 a 요소를 클릭하면
+      for(var i = 0l i < thumbnails.length; i++) {
+        thumbnails[i].addEventListener("click", function(e) {
+          e.preventDefault();
+          
+          // 1.1 #photo 요소의 src 속성을 클릭한 요소의 href 속성으로 바꾸고
+          photo.src = this.href;
+        
+          // 1.2 #overlay 요소를 화면에 표시한다.
+          overlay.style.display = "block";
+        
+        });
+      }
+
+      // 2. #overlay 요소를 클릭하면
+      overlay.addEventListener("click", function () {
+        // 2.1 #overlay 요소를 화면에서 숨긴다.
+        this.style.display = "none";
+      });
+      
+      
+    });
+
+  </script>
+</head>
+<body>
+
+  <ul id="gallery">
+    <li>
+      <a href="https://i.imgur.com/uLpiPJu.jpg">
+        <img src="https://i.imgur.com/GfO1pY7.jpg" alt="Thumbnail">
+      </a>
+    </li>
+    <li>
+      <a href="https://i.imgur.com/lk3FXRJ.jpg">
+        <img src="https://i.imgur.com/PEDhF7e.jpg" alt="Thumbnail">
+      </a>
+    </li>
+    <li>
+      <a href="https://i.imgur.com/UE2q02X.jpg">
+        <img src="https://i.imgur.com/QmRCfhv.jpg" alt="Thumbnail">
+      </a>
+    </li>
+    <li>
+      <a href="https://i.imgur.com/GSD2er0.jpg">
+        <img src="https://i.imgur.com/rNQzL9m.jpg" alt="Thumbnail">
+      </a>
+    </li>
+    <li>
+      <a href="https://i.imgur.com/U9wbSiE.jpg">
+        <img src="https://i.imgur.com/nGAh38c.jpg" alt="Thumbnail">
+      </a>
+    </li>
+  </ul>
+
+  <div id="overlay">
+    <img src="https://i.imgur.com/DYLUJUH.jpg" alt="photo" id="photo">
+  </div>
+  
+</body>
+</html>
